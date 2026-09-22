@@ -3,8 +3,10 @@ FROM php:8.2-apache
 # Install required PHP extensions for MySQL
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# Enable Apache mod_rewrite
-RUN a2enmod rewrite
+# Enable Apache mod_rewrite and ensure ONLY mpm_prefork is active
+RUN a2dismod mpm_event mpm_worker 2>/dev/null || true \
+    && a2enmod mpm_prefork \
+    && a2enmod rewrite
 
 # Configure Apache port dynamically to support Railway's $PORT environment variable
 RUN echo "Listen \${PORT}" > /etc/apache2/ports.conf \
@@ -33,4 +35,5 @@ ENV PORT=80
 
 EXPOSE 80
 
-CMD ["apache2-foreground"]
+# Clean any conflicting MPM modules at runtime and start Apache
+CMD ["/bin/bash", "-c", "rm -f /etc/apache2/mods-enabled/mpm_event.* /etc/apache2/mods-enabled/mpm_worker.* && apache2-foreground"]
