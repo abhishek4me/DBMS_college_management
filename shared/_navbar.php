@@ -1,11 +1,9 @@
 <header>
   <div class="container">
     <div class="logo">
-      <a href="./index.php">
-        <img src="./images/company-logo.jpg" alt="Logo" />
-      </a>
-      <a href="./index.php">
-        <h3>SCHOOL MANAGEMENT</h3>
+      <a href="./index.php" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+        <img src="./images/1.png" alt="Logo" />
+        <h3>CAVATTA COLLEGE MANAGEMENT</h3>
       </a>
     </div>
 

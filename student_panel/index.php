@@ -9,12 +9,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Dashboard</title>
+    <title>Cavatta College Management - Student</title>
     <link rel="shortcut icon" href="./images/logo.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../css/oranbyte-google-translator.css">
 
     <style type="text/css">
         .container main .subjects .eg #piechart {
@@ -139,26 +138,18 @@
 
 <body>
     <header>
-        <div class="logo" title="University Management System">
+        <div class="logo" title="Cavatta College Management">
             <img src="./images/logo.png" alt="">
-            <h2>E<span class="danger">R</span>P</h2>
+            <h2>Cavatta <span class="danger">College</span></h2>
         </div>
         <div class="navbar">
-            <a href="index.php">
+            <a href="index.php" class="active">
                 <span class="material-icons-sharp">home</span>
                 <h3>Home</h3>
             </a>
             <a href="timetable.php" onclick="timeTableAll()">
                 <span class="material-icons-sharp">today</span>
                 <h3>Time Table</h3>
-            </a>
-            <a href="exam.php">
-                <span class="material-icons-sharp">grid_view</span>
-                <h3>Examination</h3>
-            </a>
-            <a href="workspace.php">
-                <span class="material-icons-sharp">description</span>
-                <h3>Workspace</h3>
             </a>
             <a href="password.php">
                 <span class="material-icons-sharp">password</span>
@@ -187,9 +178,12 @@
                     $id = $_SESSION['uid'];
                     $query_sql = "SELECT * FROM students WHERE id='$id'";
                     $result = mysqli_query($conn, $query_sql);
-                    $row = $result->fetch_assoc();
+                    $row = $result ? $result->fetch_assoc() : null;
+                    $imgPath = (!empty($row['image']) && file_exists("../studentUploads/" . $row['image'])) 
+                        ? "../studentUploads/" . $row['image'] 
+                        : "../images/user.png";
                     echo "<div class='profile-photo'>
-                        <img src='../studentUploads/" . $row['image'] . "'>
+                        <img src='" . $imgPath . "' alt='Profile Photo'>
                     </div>";
                     ?>
 
@@ -210,12 +204,6 @@
 
                     </div>
                 </div>
-                <br>
-                <div id="oranbyte-google-translator" 
-                        data-default-lang="en"
-                        data-lang-root-style="code-flag"
-                        data-lang-list-style="code-flag"
-                        ></div>
                 <div class="about">
                     <?php
                     $query = "select * from students where id='$id'";
@@ -238,10 +226,7 @@
                     ?><br>
 
                     <div style="display: inline;">
-                  
-                    <b><a href="buspanel.php" class="link-btn">Bus Panel</a></b><br>
                     <b><a href="fee-payment.php" class="link-btn">Pay-Fee</a></b>
-                    
                     </div>
                 </div>
             </div>
@@ -257,48 +242,115 @@
             </div>
 
 
-            <div class="leaves " style="margin-top: 20px;">
-                <h2>Syllabus</h2>
-                <?php
-                $id = $_SESSION['uid'];
-                $query_sql = "SELECT * FROM students WHERE id='$id'";
-                $result = mysqli_query($conn, $query_sql);
-                $row = $result->fetch_assoc();
-                $class = $row['class'];
+            <div class="timetable" style="margin-top: 24px;">
+                <h2>Course & Faculty Attendance</h2>
+                <table>
+                    <thead>
+                        <tr class="header">
+                            <th>Faculty & Course</th>
+                            <th>Code</th>
+                            <th class="text-center">Held</th>
+                            <th class="text-center">Attended</th>
+                            <th class="text-center">%</th>
+                            <th class="text-center">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $studentId = $_SESSION['uid'];
+                        $courses = [
+                            [
+                                'faculty' => 'Ms. AJANA J',
+                                'subject' => 'Theory of Computation',
+                                'code'    => 'PCERT502',
+                                'match'   => '%THEORY OF COMPUTATION%'
+                            ],
+                            [
+                                'faculty' => 'Mrs. SIMI M S',
+                                'subject' => 'Microcontrollers and Interfacing',
+                                'code'    => 'PCERT503',
+                                'match'   => '%MICROCONTROLLERS%'
+                            ],
+                            [
+                                'faculty' => 'Mrs. LORINDA E',
+                                'subject' => 'Database Management Systems',
+                                'code'    => 'PBERT504',
+                                'match'   => '%DATABASE MANAGEMENT SYSTEMS%'
+                            ],
+                            [
+                                'faculty' => 'Mrs. HEMA S MAHESH',
+                                'subject' => 'Digital Signal Processing',
+                                'code'    => 'PCERT501',
+                                'match'   => '%DIGITAL SIGNAL PROCESSING%'
+                            ],
+                            [
+                                'faculty' => 'Mrs. HEMA DEVI',
+                                'subject' => 'Cloud Computing',
+                                'code'    => 'CLOUD',
+                                'match'   => '%CLOUD COMPUTING%'
+                            ]
+                        ];
 
-                $sql2 = "SELECT * FROM syllabus WHERE class='$class'";
-                $result2 = mysqli_query($conn, $sql2);
-                if ($result2->num_rows > 0) {
-                    while ($row2 = $result2->fetch_assoc()) {
-                        echo "<div class='teacher'>
-                    <div class='profile-photo'>
-                    <a href='../syllabusUploads/" . $row2['file'] . "'>
-                    <img src='./images/profile-2.png' alt=''></div>
-                    <div class='info'>
-                        <h3>" . $row2['subject'] . "</h3>
-                        <small class='text-muted'>Download or View</small>
-                        </a>
-                    </div>
-                </div>";
-                    }
-                } else {
-                    echo '<p style="padding-left: 20px;margin-top: 10px;">Syllabus not uploaded yet!</p>';
-                }
-                ?>
+                        foreach ($courses as $c) {
+                            $matchSql = mysqli_real_escape_string($conn, $c['match']);
+                            $codeSql = mysqli_real_escape_string($conn, $c['code']);
+                            
+                            // Total held classes for this student in this course
+                            $qTotal = mysqli_query($conn, "SELECT COUNT(*) as total FROM attendence WHERE student_id = '$studentId' AND (subject LIKE '$matchSql' OR subject LIKE '%$codeSql%')");
+                            $rTotal = mysqli_fetch_assoc($qTotal);
+                            $held = (int)($rTotal['total'] ?? 0);
 
+                            // Attended classes
+                            $qAtt = mysqli_query($conn, "SELECT COUNT(*) as attended FROM attendence WHERE student_id = '$studentId' AND attendence = '1' AND (subject LIKE '$matchSql' OR subject LIKE '%$codeSql%')");
+                            $rAtt = mysqli_fetch_assoc($qAtt);
+                            $attended = (int)($rAtt['attended'] ?? 0);
 
+                            // Latest status (for today or most recent session)
+                            $qLatest = mysqli_query($conn, "SELECT attendence FROM attendence WHERE student_id = '$studentId' AND (subject LIKE '$matchSql' OR subject LIKE '%$codeSql%') ORDER BY `date` DESC LIMIT 1");
+                            $rLatest = mysqli_fetch_assoc($qLatest);
+
+                            $pctStr = ($held > 0) ? round(($attended / $held) * 100) . '%' : '—';
+                            $statusBadge = '<span style="color:#94a3b8; font-weight:bold;">—</span>'; // Blank if unmarked
+
+                            if ($rLatest) {
+                                $val = trim((string)$rLatest['attendence']);
+                                if ($val === '1') {
+                                    $statusBadge = '<span class="badge" style="background:#16a34a; color:#fff; font-weight:600; padding:5px 12px; border-radius:6px; font-size:12px;">✔ Present</span>';
+                                } elseif ($val === '0') {
+                                    $statusBadge = '<span class="badge" style="background:#dc2626; color:#fff; font-weight:600; padding:5px 12px; border-radius:6px; font-size:12px;">✖ Absent</span>';
+                                }
+                            }
+
+                            echo "<tr>
+                                <td>
+                                    <strong>{$c['faculty']}</strong><br>
+                                    <small class='text-muted'>{$c['subject']}</small>
+                                </td>
+                                <td><span style='font-family:monospace; background:rgba(0,0,0,0.05); padding:2px 6px; border-radius:4px;'>{$c['code']}</span></td>
+                                <td class='text-center'>{$held}</td>
+                                <td class='text-center'>{$attended}</td>
+                                <td class='text-center'><strong>{$pctStr}</strong></td>
+                                <td class='text-center'>{$statusBadge}</td>
+                            </tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
             </div>
-            <div class="timetable" id="timetable">
-                <h2>Monthly Attendance</h2>
-                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Date...">
+
+            <div class="timetable" id="timetable" style="margin-top: 24px;">
+                <h2>Monthly Attendance Log</h2>
+                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by Date or Course...">
 
                 <table id="myTable">
-                    <tr class="header">
-                        <th style="width:60%;">Date</th>
-                        <th style="width:40%;">Attendence</th>
-                    </tr>
+                    <thead>
+                        <tr class="header">
+                            <th style="width:35%;">Date & Time</th>
+                            <th style="width:40%;">Course</th>
+                            <th style="width:25%;">Status</th>
+                        </tr>
+                    </thead>
                     <tbody id="attendence_table">
-
                     </tbody>
                 </table>
                 <br><br>
@@ -356,7 +408,7 @@
                         $result = mysqli_query($conn, $sql);
                         if ($result->num_rows > 0) {
                             $row = $result->fetch_assoc();
-                            $sender = ucfirst(strtolower($row['fname'])) . " " . strtolower($row['lname']);
+                            $sender = trim($row['fname'] . " " . $row['lname']);
                         } else {
                             $sender = "REMOVED";
                         }
@@ -449,7 +501,6 @@
     <script type="text/javascript" src="app.js"></script>
     <!-- <script type="text/javascript" src="timeTable.js"></script> -->
     <script type="text/javascript" src="index.js"></script>
-    <script src="../js/oranbyte-google-translator.js"></script>
 </body>
 
 </html>

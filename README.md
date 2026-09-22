@@ -1,146 +1,82 @@
-# 🍊 school-management-system 
-PHP School management system developed for schools or small institutes. You can use this to maintain record's related to students, teachers, and other. [Click here to view a live demo](https://sms.oranbyte.com)
+# 🍊 Cavatta College Management System
+PHP & MySQL College Management System developed for Cavatta College. Used to maintain records related to students, teachers, attendance, timetables, fee payments, notices, and more.
 
+## 🥏 Technologies Used 
+1. PHP (8.1+)
+2. MySQL database (Local XAMPP or Railway.com)
+3. Bootstrap 5
+4. React 18 & GSAP (for `<StrokeText />` dynamic branding)
+5. JQuery, JavaScript
+6. HTML5, CSS3
 
+## 💡 Features 
+1. Student record management (Includes 56 KTU batch students)
+2. Teacher record management
+3. Notice Board & Announcements
+4. Weekly Class Timetable (Integrated Theory & Laboratory schedule)
+5. Attendance Management
+6. Fee Payment & Payroll records
+7. Password reset & Forgot password
+8. Modern Landing Page
+9. React Bits `<StrokeText />` animated SVG letterform integration
+10. Single Unified Login for all roles
+11. Dark & Light theme support
+12. Seamless Railway.com Cloud Database Migration
 
-## 🥏 Technolgies Used 
-  1. PHP (8.1) 
-  2. MySQL database  
-  3. Bootstrap 5
-  4. JQuery, JavaScript
-  5. HTML, CSS
+## 🔐 Logins and Credentials
 
-## 💡 FEATURES 
-  1. student record management
-  2. Teacher record management 
-  3. Leave Management
-  4. Notice Upload 
-  5. Exam result upload
-  6. Notes upload
-  7. Bus Service  
-  8. Syllabus upload / update
-  9. Time table
-  10. Attendence Management
-  11. Password reset, Forgot password
-  12. Front Page 
-  13. Single login
-  14. Dark theme support
-  15. Multi-Language Support <small style="color: orange;">(new)</small>
+| Panel   | Username / Email | Password |
+| :------ | :--------------- | :------: |
+| **Admin**   | `admin`   | `123` |
+| **Teacher** | `teacher` | `123` |
+| **Student** | `student` | `123` |
+| **Owner**   | `owner`   | `123` |
 
-## 🦤 SCREENSHOTS
+---
 
-### Pre-View
-<div style="display: flex;flex-direction: column; grid-gap: 10px;">
-     <div style="display: flex; grid-gap: 10px;">
-        <img src="screenshots/1.png" alt="screenshots" width="49%" style="border: 2px solid lightgreen"/>
-        <img src="screenshots/2.png" alt="screenshots" width="49%" style="border: 2px solid lightgreen"/>
-    </div>
-</div>
-<br>
+## 🚀 How to Run Locally (XAMPP)
 
-### Admin View
-<div style="display: flex;flex-direction: column; grid-gap: 10px;">
-   <div style="display: flex; grid-gap: 10px;">
-        <img src="screenshots/oranbyte1.png" alt="screenshots" width="49%" style="border: 2px solid lightgreen"/>
-        <img src="screenshots/4.png" alt="screenshots" width="49%" style="border: 2px solid lightgreen"/>
-    </div>
-     <div style="display: flex; grid-gap: 10px;">
-        <img src="screenshots/5.png" alt="screenshots" width="49%" style="border: 2px solid lightgreen"/>
-        <img src="screenshots/6.png" alt="screenshots" width="49%" style="border: 2px solid lightgreen"/>
-    </div>
-     <div style="display: flex; grid-gap: 10px;">
-        <img src="screenshots/7.png" alt="screenshots" width="49%" style="border: 2px solid lightgreen"/>
-        <img src="screenshots/8.png" alt="screenshots" width="49%" style="border: 2px solid lightgreen"/>
-    </div>
-     <div style="display: flex; grid-gap: 10px;">
-        <img src="screenshots/9.png" alt="screenshots" width="49%" style="border: 2px solid lightgreen"/>
-        <img src="screenshots/10.png" alt="screenshots" width="49%" style="border: 2px solid lightgreen"/>
-    </div>
-</div>
-<br>
+1. **Start XAMPP Apache & MySQL**:
+   - Ensure Apache is running on port 80 and MySQL on port 3306.
+2. **Database Setup**:
+   - Database name: `_sms`
+   - Import file: `database/railway_sms_migration.sql` (or `database/_sms.sql`)
+3. **Placement**:
+   - Place project directory at: `C:\xampp\htdocs\school-management-system\`
+4. **Access the Website**:
+   - [http://localhost/school-management-system](http://localhost/school-management-system)
+   - Login page: [http://localhost/school-management-system/login.php](http://localhost/school-management-system/login.php)
 
-### Teacher View
-<div style="display: flex;flex-direction: column; grid-gap: 10px;">
-    <div style="display: flex; grid-gap: 10px;">
-        <img src="screenshots/11.png" alt="screenshots" width="49%" style="border: 2px solid lightgreen"/>
-        <img src="screenshots/12.png" alt="screenshots" width="49%" style="border: 2px solid lightgreen"/>
-    </div>
-</div>
-<br>
+---
 
-### Student View
-<div style="display: flex;flex-direction: column; grid-gap: 10px;">
-   <div style="display: flex; grid-gap: 10px;">
-        <img src="screenshots/13.png" alt="screenshots" width="49%" style="border: 2px solid lightgreen"/>
-        <img src="screenshots/14.png" alt="screenshots" width="49%" style="border: 2px solid lightgreen"/>
-    </div>
-    <div style="display: flex; grid-gap: 10px;">
-        <img src="screenshots/15.png" alt="screenshots" width="49%" style="border: 2px solid lightgreen"/>
-        <img src="screenshots/16.png" alt="screenshots" width="49%" style="border: 2px solid lightgreen"/>
-    </div>
-    <div style="display: flex; grid-gap: 10px;">
-        <img src="screenshots/20.png" alt="screenshots" width="49%" style="border: 2px solid lightgreen"/>
-    </div>
-    
-</div>
-<br>
+## ☁️ Migrating Database to Railway.com
 
+When you create your MySQL service on [Railway.com](https://railway.com):
 
-### Owner View
-<div style="display: flex;flex-direction: column; grid-gap: 10px;">
-    <div style="display: flex; grid-gap: 10px;">
-        <img src="screenshots/17.png" alt="screenshots" width="49%" style="border: 2px solid lightgreen"/>
-        <img src="screenshots/19.png" alt="screenshots" width="49%" style="border: 2px solid lightgreen"/>
-    </div>
-    
-</div>
-<br>
+### Option 1: Automated Script (Recommended)
+Run the migration script using PHP or PowerShell:
+```bash
+# In PowerShell:
+.\migrate_to_railway.ps1 "mysql://root:password@roundhouse.proxy.rlwy.net:PORT/railway"
 
-## ✅ HOW TO USE?
+# Or with PHP:
+php migrate_to_railway.php "mysql://root:password@roundhouse.proxy.rlwy.net:PORT/railway"
+```
+The script will connect, import the complete database schema and all 56 student records, and optionally save credentials to `assets/config.local.php`.
 
-  <b>Pre-requirement</b> : Make sure you have both php and MySQL installed on your PC. You can also use XAMPP which provide BOTH (php + MySQL).<br><br>
+### Option 2: Using Railway Environment Variables
+When hosting on Railway, add these variables in your Railway Project Service Settings:
+- `MYSQLHOST`
+- `MYSQLPORT`
+- `MYSQLUSER`
+- `MYSQLPASSWORD`
+- `MYSQLDATABASE`
+(or simply provide `MYSQL_URL`)
 
- <b>Step-1 :</b> Start XAMPP <br>
-   Open XAMPP Control panel and start the Apache And MySQL Server  <br>
-
- <b>Step-2 :</b> Create Database <br>
-   <b>The schema file of the database setup is available at database/_sms.sql </b>
-   <br><br>
-   From you xampp open phpmyadmin by clicking on admin button in front of MySQL -> create a database with the name '_sms' -> import the  database/_sms.sql file to complete the database setup.<br>
-
-<b>Step-3 :</b> Placement <br>
-   <b> If you have xampp installed on your PC you need to place the downloaded folder on 'htdocs directory' </b>
-   <br><br>
-   Copy the downloaded folder and place it into htdocs folder. Located at <i>C:\xampp\htdocs</i>
-   <br><br>
-   make sure your directory setup is like : <i>C:\xampp\htdocs\school-management-system\ </i> : and index.php file is available on the that location
-
-<b>Step-4 :</b> Run the application <br>
-   <b> visit on the url : <i>http://localhost/school-management-system</i> </b>
-   <br> Visit to the given URL to see the running website
-
-## 🔐 Emails and Passwords
-
-The project comes with default user on each panel you can remove and update them also.<br>
-The **Credentials** for default logins are
-
-| Panel   |  Email             | Password |
-| ----:   |  :---------------- | :------: |
-| Admin   | admin@gmail.com    | 123      |
-| Teacher | teacher@gmail.com  | 123      |
-| Student | student@gmail.com  | 123      |
-| Owner   | owner@gmail.com    | 123      |
-
-- Note : **Password for New Teachers and Students:**  
-   The default password for newly created teacher and student accounts is set to their **date of birth**.  
-   - Example: If the date of birth is **12 July 2000**, the password would be **12072000**.
-
-## ❤️ Contributing
-
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-
-
+### Option 3: Manual Import
+Import the ready-made SQL file into your Railway MySQL database via MySQL CLI or phpMyAdmin:
+```bash
+mysql -h <RAILWAY_HOST> -P <RAILWAY_PORT> -u root -p <RAILWAY_DATABASE> < database/railway_sms_migration.sql
+```
+"# DBMS_college_management" 
+"# DBMS_college_management" 

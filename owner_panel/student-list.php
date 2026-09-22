@@ -16,15 +16,13 @@ error_reporting(0);
     <link rel="stylesheet" type="text/css" href="style.css">
     <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <title>ERP</title>
-    <link rel="stylesheet" href="../css/oranbyte-google-translator.css">
-    <script src="../js/oranbyte-google-translator.js"></script>
-</head>
+    <title>Cavatta College Management - Owner</title>
+    </head>
 <body>
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php">SCHOOL MANAGEMENT</a>
+    <a class="navbar-brand" href="index.php">CAVATTA COLLEGE MANAGEMENT</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -55,11 +53,7 @@ error_reporting(0);
         </li>
       </ul>
       <form class="d-flex align-items-center">
-            <div id="oranbyte-google-translator" class="me-2"
-              data-default-lang="en"
-              data-lang-root-style="code-flag"
-              data-lang-list-style="code-flag"
-              ></div>
+            
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-student">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
@@ -70,26 +64,14 @@ error_reporting(0);
     <div class="select">
       <select class="form-select" aria-label="Default select example" id="form-select">
   <option value="" selected>Select Class</option>
-  <option value="12m">12 (Math)</option>
-<option value="12b">12 (Bio)</option>
-<option value="12c">12 (Commerce)</option>
-<option value="11m">11 (Math)</option>
-<option value="11b">11 (Bio)</option>
-<option value="11c">11 (Commerce)</option>
-<option value="10">10</option>
-<option value="9">9</option>
-<option value="8">8</option>
-<option value="7">7</option>
-<option value="6">6</option>
-<option value="5">5</option>
-<option value="4">4</option>
-<option value="3">3</option>
-<option value="2">2</option>
-<option value="1">1</option>
-<option value="pg">pg</option>
-<option value="lkg">lkg</option>
-<option value="ukg">ukg</option>
-
+  <option value="ECE">Electronics and Communication (ECE)</option>
+  <option value="CSE">Computer Science (CSE)</option>
+  <option value="EAC">Electronics and Computer (EAC)</option>
+  <option value="ME">Mechanical Engineering (ME)</option>
+  <option value="EEE">Electrical and Electronics (EEE)</option>
+  <option value="CE">Civil Engineering (CE)</option>
+  <option value="IT">Information Technology (IT)</option>
+  <option value="AIDS">Artificial Intelligence & Data Science (AIDS)</option>
 </select>
     </div>
     <div class="teacher-list">

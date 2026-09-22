@@ -1,51 +1,65 @@
-// Select The Elements
-var toggle_btn;
-var big_wrapper;
-var hamburger_menu;
+// Cavatta College Management - Theme and Interactive Navigation Handler
+(function () {
+  const STORAGE_KEY = "cavatta_theme";
 
-function declare() {
-  toggle_btn = document.querySelector(".toggle-btn");
-  big_wrapper = document.querySelector(".big-wrapper");
-  hamburger_menu = document.querySelector(".hamburger-menu");
-}
-
-const main = document.querySelector("main");
-
-declare();
-
-let dark = false;
-
-function toggleAnimation() {
-  // Clone the wrapper
-  dark = !dark;
-  let clone = big_wrapper.cloneNode(true);
-  if (dark) {
-    clone.classList.remove("light");
-    clone.classList.add("dark");
-  } else {
-    clone.classList.remove("dark");
-    clone.classList.add("light");
+  function getSavedTheme() {
+    return localStorage.getItem(STORAGE_KEY) || "dark";
   }
-  clone.classList.add("copy");
-  main.appendChild(clone);
 
-  document.body.classList.add("stop-scrolling");
+  function applyTheme(theme) {
+    const bigWrapper = document.querySelector(".big-wrapper");
+    if (theme === "dark") {
+      if (bigWrapper) {
+        bigWrapper.classList.remove("light");
+        bigWrapper.classList.add("dark");
+      }
+      document.body.classList.remove("light");
+      document.body.classList.add("dark");
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      if (bigWrapper) {
+        bigWrapper.classList.remove("dark");
+        bigWrapper.classList.add("light");
+      }
+      document.body.classList.remove("dark");
+      document.body.classList.add("light");
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+    try {
+      localStorage.setItem(STORAGE_KEY, theme);
+    } catch (e) {}
+  }
 
-  clone.addEventListener("animationend", () => {
-    document.body.classList.remove("stop-scrolling");
-    big_wrapper.remove();
-    clone.classList.remove("copy");
-    // Reset Variables
-    declare();
-    events();
-  });
-}
+  function init() {
+    const savedTheme = getSavedTheme();
+    applyTheme(savedTheme);
 
-function events() {
-  toggle_btn.addEventListener("click", toggleAnimation);
-  hamburger_menu.addEventListener("click", () => {
-    big_wrapper.classList.toggle("active");
-  });
-}
+    const toggleBtn = document.querySelector(".toggle-btn");
+    const bigWrapper = document.querySelector(".big-wrapper");
+    const hamburgerMenu = document.querySelector(".hamburger-menu");
 
-events();
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        const currentIsDark =
+          document.body.classList.contains("dark") ||
+          (bigWrapper && bigWrapper.classList.contains("dark"));
+        const nextTheme = currentIsDark ? "light" : "dark";
+        applyTheme(nextTheme);
+      });
+    }
+
+    if (hamburgerMenu && bigWrapper) {
+      hamburgerMenu.addEventListener("click", function () {
+        bigWrapper.classList.toggle("active");
+      });
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+

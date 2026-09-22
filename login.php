@@ -39,13 +39,15 @@ if (isset($_SESSION['uid'])) {
 
 <head>
   <meta charset="UTF-8">
-  <title>School Management</title>
+  <title>Cavatta College Management - Login</title>
   <!-- Fontawesome CDN Link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
   <link rel="stylesheet" href="login-form-style.css">
+  <link rel="stylesheet" href="css/MoltenMetal.css">
+  <link rel="stylesheet" href="css/StrokeText.css">
   <link rel="icon" type="image/x-icon" href="images/1.png">
 </head>
 
@@ -54,10 +56,10 @@ if (isset($_SESSION['uid'])) {
     <input type="checkbox" id="flip">
     <div class="cover">
       <div class="front">
-        <img src="images/loginimage.jpg" alt="">
-        <div class="text">
-          <span class="text-1">SCHOOL MANAGEMENT SYSTEM<br></span>
-          <span class="text-2">Plan serve program</span>
+        <div id="molten-metal-root" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 10; background: #0b0716;"></div>
+        <div class="text" style="z-index: 130; pointer-events: none;">
+          <div id="stroke-text-root" style="width: 90%; max-width: 380px; pointer-events: auto;"></div>
+          <span class="text-2" style="margin-top: 8px; font-weight: 600; text-shadow: 0 2px 10px rgba(0,0,0,0.8); letter-spacing: 0.5px;">Cavatta College Management</span>
         </div>
       </div>
 
@@ -78,7 +80,7 @@ if (isset($_SESSION['uid'])) {
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-envelope"></i>
-                <input type="email" name="email" placeholder="Enter your email" id='loginEmail' required>
+                <input type="text" name="email" placeholder="Enter your username or email" id='loginEmail' required>
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
@@ -189,6 +191,12 @@ if (isset($_SESSION['uid'])) {
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/StrokeText.js"></script>
+  <script type="module" src="js/MoltenMetal.js"></script>
   <script src="index.js"></script>
 
 

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <title>School Management</title>
+    <title>Cavatta College Management - Teacher</title>
     <link rel="icon" type="image/x-icon" href="../images/1.png">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> -->
 
@@ -28,7 +28,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../css/oranbyte-google-translator.css">
     <link rel="stylesheet" href="settings-style.css">
     
    

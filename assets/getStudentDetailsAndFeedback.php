@@ -20,7 +20,7 @@ if (isset($_POST['id']) && isset($_SESSION['uid'])) {
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             $data['status'] = "success";
-            $data["name"] = ucfirst(strtolower($row["fname"])) . " " . strtolower($row['lname']);
+            $data["name"] = trim($row["fname"] . " " . $row['lname']);
             $row['image'] = "../studentUploads/".$row['image'];
             $data["image"] = file_exists($row['image']) ? $row['image'] : "../images/user.png";
 

@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
             while ($row = mysqli_fetch_assoc($result)) {
 
-                $response['content'] .= "<option value='" . $row['id'] . "'>" . ucfirst(strtolower($row['fname'])) . " " . strtolower($row['lname']) . "</option>";
+                $response['content'] .= "<option value='" . $row['id'] . "'>" . htmlspecialchars(trim($row['fname'] . ' ' . $row['lname'])) . "</option>";
             }
         } else {
             $response['status'] = "NO_DATA";

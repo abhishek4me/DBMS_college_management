@@ -1,7 +1,7 @@
 <?php
-$searches = array('dashboard', 'teacher', 'student', 'subjects', "attendence", 'noticeboard', 'timetable', 'syllabus', 'notes', 'marks','bus service', 'settings');
+$searches = array('dashboard', 'teacher', 'student', 'subjects', "attendence", 'noticeboard', 'timetable', 'settings');
 
-$pages = array('dashboard.php', 'teacher.php', 'student.php', 'subjects.php', "attendence.php", 'noticeboard.php', 'timetable.php', 'syllabus.php', 'notes.php', 'marks.php','buses.php', 'settings.php');
+$pages = array('dashboard.php', 'teacher.php', 'student.php', 'subjects.php', "attendence.php", 'noticeboard.php', 'timetable.php', 'settings.php');
 
 $response = "";
 if (isset($_POST['searchValue'])) {

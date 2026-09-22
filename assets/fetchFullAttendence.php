@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 <td>' . $row['id'] . '</td>
                                 <td class="user">
                                     <img src="' . $pathToFile . '">
-                                    <p>' . ucfirst(strtolower($row['fname'])). " " .strtolower($row['lname']) . '</p>
+                                    <p>' . htmlspecialchars(trim($row['fname'] . " " . $row['lname'])) . '</p>
                                 </td>
                                 <td class="text-center"> ' . $workingDays . '</td>
                                 <td class="text-center"> ' . $present . '</td>

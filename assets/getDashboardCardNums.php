@@ -29,7 +29,7 @@ if(isset($_SESSION['uid'])){
     mysqli_stmt_close($stmt3);
 
 
-    $classCountQuery = "SELECT COUNT(*) FROM `notes`;";
+    $classCountQuery = "SELECT COUNT(*) FROM `subjects`;";
     $stmt4 = mysqli_prepare($conn, $classCountQuery);
     mysqli_stmt_execute($stmt4);
     mysqli_stmt_bind_result($stmt4, $classCount);

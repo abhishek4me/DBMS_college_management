@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <title>School Management</title>
+    <title>Cavatta College Management - Admin</title>
     <link rel="icon" type="image/x-icon" href="../images/1.png">
     
     <link rel="stylesheet" href="css/bootstrap.css">

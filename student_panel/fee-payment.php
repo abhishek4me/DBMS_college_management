@@ -12,9 +12,7 @@
     <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
     <link rel="shortcut icon" href="./images/logo.png">
     <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
-    <title>Fee Payment</title>
-    <link rel="stylesheet" href="../css/oranbyte-google-translator.css">
-    <script src="../js/oranbyte-google-translator.js"></script>
+    <title>Cavatta College Management - Fee Payment</title>
     <style type="text/css">
       .payment{
         margin-bottom: 10%;
@@ -41,7 +39,7 @@ height: 100vh !important;
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php">SCHOOL MANAGEMENT</a>
+    <a class="navbar-brand" href="index.php">CAVATTA COLLEGE MANAGEMENT</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -91,25 +89,17 @@ height: 100vh !important;
                 </div> -->
                 <div class="col-md-6 mb-4">
                   
-                  <select class="form-select" aria-label="Default select example" id="select">
-  <option selected>Open this select menu</option>
-  <option value="nu-ukg">Nur-UKG</option>
-  <option value="1">Class 1</option>
-  <option value="2">Class 2</option>
-  <option value="3">Class 3</option>
-  <option value="4">Class 4</option>
-  <option value="5">Class 5</option>
-  <option value="6">Class 6</option>
-  <option value="7">Class 7</option>
-  <option value="8">Class 8</option>
-  <option value="9">Class 9</option>
-  <option value="10">Class 10</option>
-  <option value="11s">Class 11 (Science)</option>
-  <option value="12s">Class 12 (Science)</option>
-  <option value="11c">Class 11 (Commerce)</option>
-  <option value="12c">Class 12 (Commerce)</option>
-
-</select>
+  <select class="form-select" aria-label="Default select example" id="select">
+    <option selected disabled value="">Select Branch</option>
+    <option value="ECE">Electronics and Communication (ECE)</option>
+    <option value="CSE">Computer Science (CSE)</option>
+    <option value="EAC">Electronics and Computer (EAC)</option>
+    <option value="ME">Mechanical Engineering (ME)</option>
+    <option value="EEE">Electrical and Electronics (EEE)</option>
+    <option value="CE">Civil Engineering (CE)</option>
+    <option value="IT">Information Technology (IT)</option>
+    <option value="AIDS">Artificial Intelligence & Data Science (AIDS)</option>
+  </select>
                   <!-- <label for="exampleDatepicker1" class="form-label">Student Name</label> -->
                   <select class="instal" aria-label="Default select example" id="instalment">
                       <option selected>Select Instalment</option>
@@ -234,23 +224,23 @@ height: 100vh !important;
        }
 
 
-       else if(id == '11c' && inst == 'i1' || id == '12c' && inst == 'i1'){
-           $("#money").val(11100);
+       else if(id == '11c' && inst == 'i1' || id == '12c' && inst == 'i1' || ['ECE','CSE','EAC','ME','EEE','CE','IT','AIDS'].includes(id) && inst == 'i1'){
+           $("#money").val(12500);
        }
-       else if(id == '11c' && inst == 'i2' || id == '12c' && inst == 'i2'){
-           $("#money").val(8900);
+       else if(id == '11c' && inst == 'i2' || id == '12c' && inst == 'i2' || ['ECE','CSE','EAC','ME','EEE','CE','IT','AIDS'].includes(id) && inst == 'i2'){
+           $("#money").val(10000);
        }
-       else if(id == '11c' && inst == 'i3' || id == '12c' && inst == 'i3'){
-           $("#money").val(11100);
+       else if(id == '11c' && inst == 'i3' || id == '12c' && inst == 'i3' || ['ECE','CSE','EAC','ME','EEE','CE','IT','AIDS'].includes(id) && inst == 'i3'){
+           $("#money").val(12500);
        }
-       else if(id == '11c' && inst == 'i4' || id == '12c' && inst == 'i4'){
-           $("#money").val(8900);
+       else if(id == '11c' && inst == 'i4' || id == '12c' && inst == 'i4' || ['ECE','CSE','EAC','ME','EEE','CE','IT','AIDS'].includes(id) && inst == 'i4'){
+           $("#money").val(10000);
        }
-       else if(id == '11c' && inst == 'bus' || id == '12c' && inst == 'bus'){
-           $("#money").val(2450);
+       else if(id == '11c' && inst == 'bus' || id == '12c' && inst == 'bus' || ['ECE','CSE','EAC','ME','EEE','CE','IT','AIDS'].includes(id) && inst == 'bus'){
+           $("#money").val(2500);
        }
-       else if(id == '11c' && inst == 'total' || id == '12c' && inst == 'total'){
-           $("#money").val(40000);
+       else if(id == '11c' && inst == 'total' || id == '12c' && inst == 'total' || ['ECE','CSE','EAC','ME','EEE','CE','IT','AIDS'].includes(id) && inst == 'total'){
+           $("#money").val(45000);
        }
 
 

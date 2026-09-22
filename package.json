@@ -1,0 +1,26 @@
+{
+  "name": "school-management-system",
+  "version": "1.0.0",
+  "description": "PHP & MySQL College Management System developed for Cavatta College. Used to maintain records related to students, teachers, attendance, timetables, fee payments, notices, and more.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProjectsAndPrograms/school-management-system.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ProjectsAndPrograms/school-management-system/issues"
+  },
+  "homepage": "https://github.com/ProjectsAndPrograms/school-management-system#readme",
+  "dependencies": {
+    "gsap": "^3.15.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  }
+}

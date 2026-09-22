@@ -12,12 +12,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Dashboard</title>
+    <title>Cavatta College Management - Password</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="shortcut icon" href="./images/logo.png">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../css/oranbyte-google-translator.css">
-    <script src="../js/oranbyte-google-translator.js"></script>
 
     <style>
         header{position: relative;}
@@ -79,7 +77,7 @@
     <header>
         <div class="logo">
             <img src="./images/logo.png" alt="">
-            <h2>E<span class="danger">R</span>P</h2>
+            <h2>Cavatta <span class="danger">College</span></h2>
         </div>
         <div class="navbar">
             <a href="index.php">
@@ -90,14 +88,6 @@
                 <span class="material-icons-sharp">today</span>
                 <h3>Time Table</h3>
             </a> 
-            <a href="exam.php">
-                <span class="material-icons-sharp">grid_view</span>
-                <h3>Examination</h3>
-            </a>
-            <a href="workspace.php">
-                <span class="material-icons-sharp">description</span>
-                <h3>Workspace</h3>
-            </a>
             <a href="password.php" class="active">
                 <span class="material-icons-sharp">password</span>
                 <h3>Change Password</h3>

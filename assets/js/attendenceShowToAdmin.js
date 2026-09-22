@@ -7,6 +7,15 @@ var totalNotices = 0;
 document.addEventListener("DOMContentLoaded", showStudentsForAttendence);
 document.getElementById("findForAttendence").addEventListener("click", showStudentsForAttendence);
 
+var classElAdmin = document.getElementById("classTakeAttendence");
+if (classElAdmin) {
+  classElAdmin.addEventListener("change", showStudentsForAttendence);
+}
+var secElAdmin = document.getElementById("sectionTakeAttendence");
+if (secElAdmin) {
+  secElAdmin.addEventListener("change", showStudentsForAttendence);
+}
+
 function showStudentsForAttendence() {
 
   var div = document.getElementById("bottom-btns");
@@ -47,6 +56,16 @@ function showStudentsForAttendence() {
 
           document.getElementById("dataNotAvailable").style.display = 'none';
           document.getElementById("takeAttendenceTable").innerHTML = data[1] + "";
+
+          var isUpdate = (data[3] === "UPDATE");
+          var btn = document.getElementById('submit-attendence-btn');
+          if (btn) {
+            btn.textContent = isUpdate ? "Update Attendence" : "Submit Attendence";
+          }
+          var dBtn = document.getElementById('submit_attendence_dropdown');
+          if (dBtn) {
+            dBtn.textContent = isUpdate ? "Update Attendence" : "Submit Attendence";
+          }
 
           var div = document.getElementById("bottom-btns");
           var buttons = div.getElementsByTagName('button');
@@ -120,7 +139,8 @@ function submitAttendence() {
       if (data === "success") {
         liveToast.style.backgroundColor = "#BBF7D0";
         liveToast.style.color = 'green';
-        document.getElementById('toast-alert-message').innerHTML = "Attendence Uploaded Successfully...";
+        var isUpdateMode = document.getElementById('submit-attendence-btn') && document.getElementById('submit-attendence-btn').textContent.indexOf("Update") !== -1;
+        document.getElementById('toast-alert-message').innerHTML = isUpdateMode ? "Attendence Updated Successfully!" : "Attendence Uploaded Successfully!";
         myToast.show();
 
 

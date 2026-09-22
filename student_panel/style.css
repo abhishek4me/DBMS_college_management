@@ -95,12 +95,20 @@ header{
 header.active{box-shadow: var(--box-shadow);}
 header .logo{
     display: flex;
+    align-items: center;
     gap: .8rem;
     margin-right: auto;
 }
 header .logo img{
-    width: 2rem;
-    height: 2rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    object-fit: contain;
+    border-radius: 6px;
+}
+header .logo h2{
+    font-size: 1.3rem;
+    margin: 0;
+    white-space: nowrap;
 }
 
 header,

@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <td>'.$studentId.'</td>
                 <td class="user">
                     <img src="'.$pathToFile.'">
-                    <p>' . ucfirst(strtolower($row2['fname'])). " " .strtolower($row2['lname']) . '</p>
+                    <p>' . htmlspecialchars(trim($row2['fname'] . " " . $row2['lname'])) . '</p>
                 </td>
 
                 <td>

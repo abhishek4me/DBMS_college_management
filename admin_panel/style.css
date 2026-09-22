@@ -139,8 +139,8 @@ body::-webkit-scrollbar {
 }
 
 .sidebar .logo-name {
-    font-size: 35px;
-    margin-left: 10px;
+    font-size: 19px;
+    margin-left: 0;
 }
 
 .sidebar {
@@ -188,60 +188,33 @@ body::-webkit-scrollbar {
     height: 30px;
 }
 
-.sidebar .logo {
-    user-select: none;
-    font-size: 24px;
-    font-weight: 700;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    color: var(--primary);
-    z-index: 500;
-    padding-bottom: 20px;
-    box-sizing: content-box;
-
-}
-
+.sidebar .logo,
 .sidebar.show .logo {
     user-select: none;
-    font-size: 24px;
+    font-size: 19px;
     font-weight: 700;
-    height: 56px;
+    height: 60px;
     display: flex;
     align-items: center;
+    gap: 10px;
     color: var(--primary);
     z-index: 500;
-    padding-bottom: 20px;
-    box-sizing: content-box;
-
+    padding: 10px 14px;
+    box-sizing: border-box;
 }
 
-.sidebar .logo img {
-    user-select: none;
-    min-width: 60px;
-    padding-left: 10px;
-    padding-right: 10px;
-    display: flex;
-    justify-content: center;
-    width: 36px;
-    height: 38px;
-    object-fit: cover;
-    border-radius: 50%;
-
-}
-
+.sidebar .logo img,
 .sidebar.show .logo img {
     user-select: none;
-    min-width: 60px;
-    padding-left: 10px;
-    padding-right: 10px;
-    display: flex;
-    justify-content: center;
-    width: 36px;
-    height: 38px;
-    object-fit: cover;
-    border-radius: 50%;
-
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    max-width: 40px;
+    padding: 0;
+    display: block;
+    object-fit: contain;
+    border-radius: 8px;
+    flex-shrink: 0;
 }
 
 .sidebar .logo .logo-name {

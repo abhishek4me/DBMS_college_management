@@ -11,7 +11,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>ERP - Progress Report</title>
+	<title>Cavatta College Management - Progress Report</title>
 	<style type="text/css">
 		.body{
 			width: 80%;
@@ -35,8 +35,6 @@
 		}
 	</style>
 	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/oranbyte-google-translator.css">
-    <script src="../js/oranbyte-google-translator.js"></script>
 </head>
 <body>
     <div class="body">

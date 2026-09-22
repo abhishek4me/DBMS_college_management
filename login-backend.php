@@ -13,14 +13,14 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     include("assets/config.php");
 
     if ($conn) {
-        $email = mysqli_real_escape_string($conn, $_POST['email']);
-        $password = mysqli_real_escape_string($conn, $_POST['password']);
+        $email = trim($_POST['email']);
+        $password = $_POST['password'];
 
-        $sql = "SELECT id, role, password_hash FROM users WHERE email=?";
+        $sql = "SELECT id, role, password_hash FROM users WHERE LOWER(TRIM(email)) = LOWER(TRIM(?)) OR id = ? LIMIT 1";
         $stmt = mysqli_prepare($conn, $sql);
 
         if ($stmt) {
-            mysqli_stmt_bind_param($stmt, "s", $email);
+            mysqli_stmt_bind_param($stmt, "ss", $email, $email);
             mysqli_stmt_execute($stmt);
 
             $result = mysqli_stmt_get_result($stmt);

@@ -82,25 +82,6 @@
 
                                     <option selected disabled value="">---select--</option>
                                     <option value="null">Not Applicable</option>
-                                    <!-- <option value="12s">12 (Math)</option>
-                                    <option value="12s">12 (Bio)</option>
-                                    <option value="12c">12 (Commerce)</option>
-                                    <option value="11s">11 (Math)</option>
-                                    <option value="11s">11 (Bio)</option>
-                                    <option value="11c">11 (Commerce)</option>
-                                    <option value="10">10</option>
-                                    <option value="9">9</option>
-                                    <option value="8">8</option>
-                                    <option value="7">7</option>
-                                    <option value="6">6</option>
-                                    <option value="5">5</option>
-                                    <option value="4">4</option>
-                                    <option value="3">3</option>
-                                    <option value="2">2</option>
-                                    <option value="1">1</option>
-                                    <option value="pg">pg</option>
-                                    <option value="lkg">lkg</option>
-                                    <option value="ukg">ukg</option> -->
                                     <?php include('partials/select_classes.php') ?>
                                     </select>
                                     <div class="invalid-feedback">
@@ -432,14 +413,6 @@
                             onclick="showTeachers()">Show
                             Teachers</button>
                     </li>
-                    
-                    
-                    <li class="nav-item me-1" role="presentation">
-                        <button class="nav-link" id="show-leave-tab" data-bs-toggle="tab" data-bs-target="#leave-tab"
-                            type="button" role="tab" aria-controls="leave-tab" aria-selected="false"
-                          >Teachers Leave</button>
-                    </li>
-
                 </ul>
 
                 <!-- Tab panes -->
@@ -601,11 +574,6 @@
                         </div>
                     </div>
 
-                    <div class="tab-pane" id="leave-tab" role="tabpanel" aria-labelledby="leave-tab" tabindex="0">
-                       <?php include('partials/teacher-shared/teachers-leave-tab.php') ?>
-                   </div>
-
-
                 </div>
 
             </div>
@@ -620,5 +588,4 @@
 
 
 <script src="../assets/js/teacher.js"></script>
-<script src="../assets/js/teacher-leave-on-admin.js"></script>
 <?php include('partials/_footer.php'); ?>

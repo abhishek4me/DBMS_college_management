@@ -77,11 +77,11 @@
                     <p>Students</p>
                 </span>
             </li>
-            <li onclick="showNotesList()">
-                <i class='bx bx-book'></i>
+            <li onclick="location.href='subjects.php'">
+                <i class='bx bx-book-bookmark'></i>
                 <span class="info">
                     <h3 class="text-center"  id="classCount">_ _ _</h3>
-                    <p>Notes</p>
+                    <p>Subjects</p>
                 </span>
             </li>
             <li onclick="showNoticeList()">

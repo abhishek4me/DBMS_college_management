@@ -136,23 +136,19 @@
                                             $query = "SELECT * FROM teachers where id = '$id'";
                                             $result = mysqli_query($conn,$query);
                                             $row = mysqli_fetch_assoc($result);
-                                            if($row["class"]=="12s"){
-                                                echo '<option selected value="'.$row["class"].'">Class 12 Science</option>';
-                                            }
-                                            else if($row["class"]=="12c"){
-                                                echo '<option selected value="'.$row["class"].'">Class 12 Commerce</option>';
-                                            }
-                                           
-                                            else if($row["class"]=="11s"){
-                                                echo '<option selected value="'.$row["class"].'">Class 11 Scinece</option>';
-                                            }
-                                            else if($row["class"]=="11c"){
-                                                echo '<option selected value="'.$row["class"].'">Class 11 Commerce</option>';
-                                            }
-                                            
-                                            else{
-                                                echo '<option selected value="'.$row["class"].'">'.$row["class"].'</option>';
-                                            }
+                                            $branchLabels = [
+                                                'ECE' => 'Electronics and Communication (ECE)',
+                                                'CSE' => 'Computer Science (CSE)',
+                                                'EAC' => 'Electronics and Computer (EAC)',
+                                                'ME'  => 'Mechanical Engineering (ME)',
+                                                'EEE' => 'Electrical and Electronics (EEE)',
+                                                'CE'  => 'Civil Engineering (CE)',
+                                                'IT'  => 'Information Technology (IT)',
+                                                'AIDS'=> 'Artificial Intelligence & Data Science (AIDS)'
+                                            ];
+                                            $c = isset($row["class"]) ? $row["class"] : 'ECE';
+                                            $label = isset($branchLabels[$c]) ? $branchLabels[$c] : $c;
+                                            echo '<option selected value="'.$c.'">'.$label.'</option>';
                                          ?>
                                     </select>
                                     <div class="invalid-feedback">

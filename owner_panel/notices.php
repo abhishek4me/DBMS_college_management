@@ -17,9 +17,7 @@ error_reporting(0);
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
-    <title>ERP</title>
-    <link rel="stylesheet" href="../css/oranbyte-google-translator.css">
-    <script src="../js/oranbyte-google-translator.js"></script>
+    <title>Cavatta College Management - Owner</title>
     <style type="text/css">
   .text-muted{
     margin-left: 2%;
@@ -115,7 +113,7 @@ error_reporting(0);
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php">SCHOOL MANAGEMENT</a>
+    <a class="navbar-brand" href="index.php">CAVATTA COLLEGE MANAGEMENT</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -146,11 +144,7 @@ error_reporting(0);
         </li>
       </ul>
       <form class="d-flex align-items-center">
-            <div id="oranbyte-google-translator" class="me-2"
-              data-default-lang="en"
-              data-lang-root-style="code-flag"
-              data-lang-list-style="code-flag"
-              ></div>
+            
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
@@ -179,25 +173,14 @@ error_reporting(0);
           </select>
           <select class="form-select" aria-label="Default select example" id="class" required>
              <option selected>----SELECT CLASS----</option>
-             <option value="12m">12 (Math)</option>
-<option value="12b">12 (Bio)</option>
-<option value="12c">12 (Commerce)</option>
-<option value="11m">11 (Math)</option>
-<option value="11b">11 (Bio)</option>
-<option value="11c">11 (Commerce)</option>
-<option value="10">10</option>
-<option value="9">9</option>
-<option value="8">8</option>
-<option value="7">7</option>
-<option value="6">6</option>
-<option value="5">5</option>
-<option value="4">4</option>
-<option value="3">3</option>
-<option value="2">2</option>
-<option value="1">1</option>
-<option value="pg">pg</option>
-<option value="lkg">lkg</option>
-<option value="ukg">ukg</option>
+             <option value="ECE">Electronics and Communication (ECE)</option>
+             <option value="CSE">Computer Science (CSE)</option>
+             <option value="EAC">Electronics and Computer (EAC)</option>
+             <option value="ME">Mechanical Engineering (ME)</option>
+             <option value="EEE">Electrical and Electronics (EEE)</option>
+             <option value="CE">Civil Engineering (CE)</option>
+             <option value="IT">Information Technology (IT)</option>
+             <option value="AIDS">Artificial Intelligence & Data Science (AIDS)</option>
           </select>
          <label for="exampleDatepicker1" class="form-label">Title</label>
           <input type="text" class="form-control" id="title"  required />
