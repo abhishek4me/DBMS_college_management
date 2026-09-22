@@ -173,8 +173,8 @@ CREATE TABLE `notice` (
   `file` varchar(100) NOT NULL,
   `importance` varchar(5) NOT NULL DEFAULT '1',
   `timestamp` datetime NOT NULL DEFAULT current_timestamp(),
-  `role` varchar(11) NOT NULL,
-  `class` varchar(11) NOT NULL,
+  `role` varchar(11) NOT NULL DEFAULT '',
+  `class` varchar(11) NOT NULL DEFAULT '',
   PRIMARY KEY (`s_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -327,9 +327,9 @@ CREATE TABLE `students` (
   `city` varchar(50) NOT NULL,
   `zip` varchar(20) NOT NULL,
   `state` varchar(50) NOT NULL,
-  `request_date` varchar(30) NOT NULL,
-  `request_time` varchar(30) NOT NULL,
-  `request` varchar(20) NOT NULL,
+  `request_date` varchar(30) NOT NULL DEFAULT '',
+  `request_time` varchar(30) NOT NULL DEFAULT '',
+  `request` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`s_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -412,7 +412,7 @@ CREATE TABLE `teachers` (
   `id` varchar(40) NOT NULL,
   `fname` varchar(100) NOT NULL,
   `lname` varchar(100) NOT NULL,
-  `father` varchar(150) NOT NULL,
+  `father` varchar(150) NOT NULL DEFAULT '',
   `subject` varchar(50) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `dob` varchar(20) NOT NULL,

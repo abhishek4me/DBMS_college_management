@@ -41,9 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
 
     if (mysqli_num_rows($result) > 0) {
-        echo 'Email already exists!';
+        $response = 'Email already exists!';
     } else {
 
         if (isset($_FILES["image"]) && $_FILES["image"]["error"] == 0) {
@@ -73,17 +74,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         if (!$invalidFormat) {
-            $addStudentDetailQuery = "INSERT INTO `students` (`s_no`, `id`, `fname`, `lname`, `father`, `gender`, `class`, `section`, `dob`, `image`, `phone`, `email`, `address`, `city`, `zip`, `state`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $requestDate = '';
+            $requestTime = '';
+            $requestStatus = '';
+            $addStudentDetailQuery = "INSERT INTO `students` (`s_no`, `id`, `fname`, `lname`, `father`, `gender`, `class`, `section`, `dob`, `image`, `phone`, `email`, `address`, `city`, `zip`, `state`, `request_date`, `request_time`, `request`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             $stmt = mysqli_prepare($conn, $addStudentDetailQuery);
-            mysqli_stmt_bind_param($stmt, "sssssssssssssss", $uniqueId, $fname, $lname, $father, $gender, $class, $section, $dob, $imageName, $phone, $email, $address, $city, $zip, $state);
+            mysqli_stmt_bind_param($stmt, "ssssssssssssssssss", $uniqueId, $fname, $lname, $father, $gender, $class, $section, $dob, $imageName, $phone, $email, $address, $city, $zip, $state, $requestDate, $requestTime, $requestStatus);
             mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
 
             $addGuardianDetailQuery = "INSERT INTO `student_guardian` (`s_no`, `id`, `gname`, `gphone`, `gaddress`, `gcity`, `gzip`, `relation`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)";
 
             $stmt = mysqli_prepare($conn, $addGuardianDetailQuery);
             mysqli_stmt_bind_param($stmt, "sssssss", $uniqueId, $guardian, $gphone, $gaddress, $gcity, $gzip, $relation);
             mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
 
             $password = str_replace("-", "", $dob);
             $passwordHash = password_hash($password, PASSWORD_DEFAULT);
@@ -103,6 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 $response = 'Error - Unable to add student';
             }
+            mysqli_stmt_close($stmt);
         }
     }
 } else {
