@@ -1,0 +1,5 @@
+assets/config.local.php
+node_modules/
+.system_generated/
+scratch/
+*.log
