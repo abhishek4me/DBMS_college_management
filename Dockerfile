@@ -16,5 +16,5 @@ ENV PORT=80
 
 EXPOSE 80
 
-# Run PHP built-in web server binding to Railway's dynamic $PORT
-CMD ["sh", "-c", "php -S 0.0.0.0:${PORT:-80} -t /var/www/html"]
+# Run PHP built-in web server with output buffering, binding to Railway's dynamic $PORT
+CMD ["sh", "-c", "php -d output_buffering=4096 -S 0.0.0.0:${PORT:-80} -t /var/www/html"]
