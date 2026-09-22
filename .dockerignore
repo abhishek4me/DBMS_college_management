@@ -1,0 +1,9 @@
+.git
+.github
+node_modules
+.system_generated
+scratch
+*.bat
+RUN_CAVATTA_LIVE.bat
+STOP_SERVERS.bat
+images/carousel1_backup_text.jpg
