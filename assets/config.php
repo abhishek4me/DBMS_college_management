@@ -1,16 +1,16 @@
 <?php
-    // Optional local configuration override (e.g. for Railway credentials)
+    // Optional local configuration override (e.g. for custom credentials)
     $local_config = __DIR__ . '/config.local.php';
     if (file_exists($local_config)) {
         include($local_config);
     }
 
-    // Default configuration (supports Railway environment variables & local XAMPP fallback)
-    $server   = getenv('MYSQLHOST') ?: (getenv('DB_HOST') ?: (isset($server) ? $server : 'localhost'));
+    // Default configuration (Railway Cloud MySQL fallback + environment variable support)
+    $server   = getenv('MYSQLHOST') ?: (getenv('DB_HOST') ?: (isset($server) ? $server : 'shortline.proxy.rlwy.net'));
     $user     = getenv('MYSQLUSER') ?: (getenv('DB_USER') ?: (isset($user) ? $user : 'root'));
-    $password = getenv('MYSQLPASSWORD') ?: (getenv('DB_PASS') ?: (isset($password) ? $password : ''));
-    $db       = getenv('MYSQLDATABASE') ?: (getenv('DB_NAME') ?: (isset($db) ? $db : '_sms'));
-    $port     = (int)(getenv('MYSQLPORT') ?: (getenv('DB_PORT') ?: (isset($port) ? $port : 3306)));
+    $password = getenv('MYSQLPASSWORD') ?: (getenv('DB_PASS') ?: (isset($password) ? $password : 'ooywPxbJVNDvOUTsrjEhySqkJrmtdiUm'));
+    $db       = getenv('MYSQLDATABASE') ?: (getenv('DB_NAME') ?: (isset($db) ? $db : 'railway'));
+    $port     = (int)(getenv('MYSQLPORT') ?: (getenv('DB_PORT') ?: (isset($port) ? $port : 36111)));
 
     // Support Railway MYSQL_URL / DATABASE_URL connection string format
     $db_url = getenv('MYSQL_URL') ?: (getenv('DATABASE_URL') ?: (isset($db_url) ? $db_url : null));
@@ -30,12 +30,21 @@
     $conn = @mysqli_connect($server, $user, $password, $db, $port);
 
     if (!$conn) {
-        // In local development or if not connected, log error
         error_log("Database connection error: " . mysqli_connect_error());
-        if (!file_exists(__DIR__ . '/../errors/error.html')) {
-            die("Database connection failed. Please check your Railway or local MySQL settings.");
+
+        $is_ajax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') 
+                   || (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false)
+                   || (basename($_SERVER['PHP_SELF']) == 'login-backend.php');
+
+        if ($is_ajax) {
+            header('Content-Type: application/json');
+            echo json_encode([
+                'status' => 'error',
+                'message' => 'Database connection failed. Please verify Railway MySQL credentials.'
+            ]);
+            exit();
         }
-        header('Location: ../errors/error.html');
-        exit();
+
+        die("<div style='font-family:sans-serif;padding:40px;text-align:center;'><h2>Database Connection Error</h2><p>" . htmlspecialchars(mysqli_connect_error()) . "</p></div>");
     }
 ?>
